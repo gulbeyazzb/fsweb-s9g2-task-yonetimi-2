@@ -16,14 +16,14 @@ const Task = ({ taskObj, onComplete }) => {
     differenceInDays(date, new Date()) <= 3 ? "normal" : "urgent";
   return (
     <div className="task">
-      <h3>{taskObj.title}</h3>
-      <div className="deadline">
-        son teslim: <span className={accentClass}>{difDays}</span>
+      <h3 className="text-lg text-colorOrange ">{taskObj.title}</h3>
+      <div className="text-sm pt-1">
+        son teslim: <span className={`${accentClass} `}>{difDays}</span>
       </div>
       <p>{taskObj.description}</p>
       <div>
         {taskObj.people.map((p) => (
-          <span className="pill" key={p}>
+          <span className="" key={p}>
             {p}
           </span>
         ))}
