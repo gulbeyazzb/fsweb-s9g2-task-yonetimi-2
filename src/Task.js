@@ -15,21 +15,34 @@ const Task = ({ taskObj, onComplete }) => {
   const accentClass =
     differenceInDays(date, new Date()) <= 3 ? "normal" : "urgent";
   return (
-    <div className="task">
-      <h3 className="text-lg text-colorOrange ">{taskObj.title}</h3>
+    <div className="p-6 bg-white rounded-md leading-normal mt-4 shadow-[0_4px_5px_0_rgb(0,0,0,0.1) ">
+      <h3 className="text-lg text-[#c8781a] ">{taskObj.title}</h3>
       <div className="text-sm pt-1">
-        son teslim: <span className={`${accentClass} `}>{difDays}</span>
+        son teslim:{" "}
+        <span className={`${accentClass} py-1 px-2 inline-block rounded-sm`}>
+          {difDays}
+        </span>
       </div>
-      <p>{taskObj.description}</p>
+      <p className="pt-2 pb-3 px-0 text-sm text-[#444]">
+        {taskObj.description}
+      </p>
       <div>
         {taskObj.people.map((p) => (
-          <span className="" key={p}>
+          <span
+            className="inline-block py-[5px] px-3 text-base border-solid border-2 ml-1 border-[#ccc] rounded-[30px]"
+            key={p}
+          >
             {p}
           </span>
         ))}
       </div>
       {onComplete && (
-        <button onClick={() => onComplete(taskObj.id)}>Tamamlandı</button>
+        <button
+          className="block py-2 px-3 ml-auto bg-[#fecc91] shadow-[0_4px_5px_0_rgb(0,0,0,0.05) rounded-[3px] pointer"
+          onClick={() => onComplete(taskObj.id)}
+        >
+          Tamamlandı
+        </button>
       )}
     </div>
   );
